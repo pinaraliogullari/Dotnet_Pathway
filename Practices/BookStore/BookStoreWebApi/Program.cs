@@ -33,4 +33,4 @@ using (var scope = app.Services.CreateScope())
     var services = scope.ServiceProvider;
     DataGenerator.Initialize(services);
 }
-    app.Run();
+ app.Run();

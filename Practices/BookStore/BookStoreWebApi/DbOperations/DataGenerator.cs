@@ -2,7 +2,7 @@
 
 namespace BookStoreWebApi.DbOperations
 {
-    public  class DataGenerator
+    public class DataGenerator
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
@@ -41,6 +41,7 @@ namespace BookStoreWebApi.DbOperations
 
                          }
                     );
+                context.SaveChanges();
             }
         }
     }

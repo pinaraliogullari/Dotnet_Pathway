@@ -1,4 +1,5 @@
 ﻿using BookStoreWebApi.BookOperations.CreateBook;
+using BookStoreWebApi.BookOperations.DeleteBook;
 using BookStoreWebApi.BookOperations.GetBook;
 using BookStoreWebApi.BookOperations.GetBooks;
 using BookStoreWebApi.BookOperations.UpdateBook;
@@ -124,12 +125,17 @@ namespace BookStoreWebApi.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var book = _context.Books.SingleOrDefault(x => x.Id == id);
-            if (book is null)
-                return BadRequest();
-
-            _context.Books.Remove(book);
-            _context.SaveChanges();
+            try
+            {
+                DeleteBookCommand command = new(_context);
+                command.BookId = id;
+                command.Handle();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+    
             return Ok();
         }
     }

@@ -3,11 +3,11 @@ using FluentValidation;
 
 namespace BookStoreWebApi.ValidationRules
 {
-    public class DeleteBookValidator:AbstractValidator<DeleteBookCommand>
+    public class DeleteBookValidator : AbstractValidator<DeleteBookCommand>
     {
         public DeleteBookValidator()
         {
-            RuleFor(command=>command.BookId).GreaterThan(0);
+            RuleFor(command => command.BookId).GreaterThan(0);
         }
     }
 }

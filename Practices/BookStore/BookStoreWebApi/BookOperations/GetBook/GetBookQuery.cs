@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using BookStoreWebApi.Common;
 using BookStoreWebApi.DbOperations;
 
 namespace BookStoreWebApi.BookOperations.GetBook
@@ -27,7 +26,7 @@ namespace BookStoreWebApi.BookOperations.GetBook
             //viewModel.PageCount = book.PageCount;
             //viewModel.PublishDate = book.PublishDate.Date.ToString("dd/MM/yyy");
             //viewModel.Genre = ((GenreEnum)book.GenreId).ToString();
-            BookViewModel viewModel=_mapper.Map<BookViewModel>(book);
+            BookViewModel viewModel = _mapper.Map<BookViewModel>(book);
             return viewModel;
         }
 

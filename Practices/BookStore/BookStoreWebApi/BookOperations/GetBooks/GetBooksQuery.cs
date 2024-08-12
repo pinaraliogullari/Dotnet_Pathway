@@ -25,7 +25,7 @@ namespace BookStoreWebApi.BookOperations.GetBooks
             //    PageCount = book.PageCount,
             //}).ToList();
 
-            List<BooksViewModel> viewModel= _mapper.Map<List<BooksViewModel>>(bookList);
+            List<BooksViewModel> viewModel = _mapper.Map<List<BooksViewModel>>(bookList);
 
             return viewModel;
         }

@@ -28,7 +28,7 @@ namespace BookStoreWebApi.BookOperations.CreateBook
             //    PublishDate = Model.PublishDate,
             //};
 
-            book= _mapper.Map<Book>(Model);
+            book = _mapper.Map<Book>(Model);
 
             _context.Books.Add(book);
             _context.SaveChanges();

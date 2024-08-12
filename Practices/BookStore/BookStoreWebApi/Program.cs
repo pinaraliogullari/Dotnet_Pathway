@@ -1,4 +1,5 @@
 using BookStoreWebApi.DbOperations;
+using BookStoreWebApi.Middlewares;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -27,6 +28,8 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.UseCustomExceptionMiddle();
+
 app.MapControllers();
 
 
@@ -35,4 +38,4 @@ using (var scope = app.Services.CreateScope())
     var services = scope.ServiceProvider;
     DataGenerator.Initialize(services);
 }
- app.Run();
+app.Run();

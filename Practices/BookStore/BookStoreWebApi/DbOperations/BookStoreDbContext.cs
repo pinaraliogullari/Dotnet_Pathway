@@ -12,8 +12,8 @@ namespace BookStoreWebApi.DbOperations
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Book>().HasKey(x=>x.Id);
-            modelBuilder.Entity<Book>().Property(x=>x.Id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Book>().HasKey(x => x.Id);
+            modelBuilder.Entity<Book>().Property(x => x.Id).ValueGeneratedOnAdd();
         }
     }
 }

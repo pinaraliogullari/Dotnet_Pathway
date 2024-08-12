@@ -3,11 +3,11 @@ using FluentValidation;
 
 namespace BookStoreWebApi.ValidationRules
 {
-    public class GetBookValidator:AbstractValidator<GetBookQuery>
+    public class GetBookValidator : AbstractValidator<GetBookQuery>
     {
         public GetBookValidator()
         {
-            RuleFor(query=>query.BookId).GreaterThan(0);
+            RuleFor(query => query.BookId).GreaterThan(0);
         }
     }
 }

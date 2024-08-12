@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace BookStoreWebApi.ValidationRules
 {
-    public class CreateBookValidator:AbstractValidator<CreateBookCommand>
+    public class CreateBookValidator : AbstractValidator<CreateBookCommand>
     {
         public CreateBookValidator()
         {

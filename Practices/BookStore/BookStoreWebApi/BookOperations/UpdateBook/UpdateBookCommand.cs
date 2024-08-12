@@ -1,13 +1,15 @@
-﻿using BookStoreWebApi.DbOperations;
+﻿using AutoMapper;
+using BookStoreWebApi.DbOperations;
 using static BookStoreWebApi.BookOperations.CreateBook.CreateBookCommand;
 
 namespace BookStoreWebApi.BookOperations.UpdateBook
 {
     public class UpdateBookCommand
     {
-        public UpdateBookModel Model { get; set; }
+        public UpdateBookViewModel Model { get; set; }
         public int BookId { get; set; }
         private readonly BookStoreDbContext _context;
+        private readonly IMapper _mapper;
         public UpdateBookCommand(BookStoreDbContext context)
         {
             _context = context;
@@ -23,10 +25,11 @@ namespace BookStoreWebApi.BookOperations.UpdateBook
             book.PageCount = Model.PageCount != default ? Model.PageCount : book.PageCount;
             book.PublishDate = Model.PublishDate != default ? Model.PublishDate : book.PublishDate;
             book.Title = Model.Title != default ? Model.Title : book.Title;
+
             _context.SaveChanges();
         }
 
-        public class UpdateBookModel
+        public class UpdateBookViewModel
         {
             public int Id { get; set; }
             public string Title { get; set; }

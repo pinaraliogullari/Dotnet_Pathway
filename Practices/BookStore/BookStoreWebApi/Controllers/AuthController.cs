@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BookStoreWebApi.Application.AuthorOperations.Queries.GetAuthor;
+using BookStoreWebApi.Application.AuthorOperations.Queries.GetAuthors;
 using BookStoreWebApi.DbOperations;
 using BookStoreWebApi.ValidationRules;
 using FluentValidation;
@@ -29,7 +30,15 @@ namespace BookStoreWebApi.Controllers
             GetAuthorValidator validator = new();
             validator.ValidateAndThrow(query);
 
-            var result= query.Handle();
+            var result = query.Handle();
+            return Ok(result);
+        }
+
+        [HttpGet]
+        public IActionResult GetAuthors()
+        {
+            GetAuthorsQuery query = new(_context, _mapper);
+            var result = query.Handle();
             return Ok(result);
         }
     }

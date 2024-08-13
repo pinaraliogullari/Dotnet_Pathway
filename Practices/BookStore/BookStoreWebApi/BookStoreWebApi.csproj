@@ -20,7 +20,6 @@
     <Folder Include="Application\AuthorOperations\Commands\CreateAuthor\" />
     <Folder Include="Application\AuthorOperations\Commands\DeleteAuthor\" />
     <Folder Include="Application\AuthorOperations\Commands\UpdateAuthor\" />
-    <Folder Include="Application\AuthorOperations\Queries\GetAuthors\" />
   </ItemGroup>
 
 </Project>

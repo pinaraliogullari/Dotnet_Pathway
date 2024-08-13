@@ -18,7 +18,7 @@ namespace BookStoreWebApi.Application.BookOperations.Queires.GetBook
 
         public BookViewModel Handle()
         {
-            var book = _context.Books.Include(x=>x.Genre).Where(book => book.Id == BookId).SingleOrDefault();
+            var book = _context.Books.Include(x=>x.Genre).OrderBy(x=>x.Id).SingleOrDefault(book => book.Id == BookId);
             if (book is null)
                 throw new InvalidOperationException("Kitap bulunamadı");
 

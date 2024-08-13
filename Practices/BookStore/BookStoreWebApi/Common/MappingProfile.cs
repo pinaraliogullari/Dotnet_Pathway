@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BookStoreWebApi.Application.AuthorOperations.Commands.CreateAuthor;
 using BookStoreWebApi.Application.GenreOperations.Queries.GetGenre;
 using BookStoreWebApi.Application.GenreOperations.Queries.GetGenres;
 using BookStoreWebApi.Entities;
@@ -26,6 +27,7 @@ namespace BookStoreWebApi.Common
 
             CreateMap<Author, AuthorViewModel>().ForMember(dest=>dest.Books,opt=>opt.MapFrom(src=>src.Books.Select(x=>x.Title).ToList()));
             CreateMap<Author, AuthorsViewModel>().ForMember(dest=>dest.Books,opt=>opt.MapFrom(src=>src.Books.Select(x=>x.Title).ToList()));
+            CreateMap<CreateAuthorModel, Author>();
        
 
 

@@ -17,7 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Application\AuthorOperations\Commands\CreateAuthor\" />
     <Folder Include="Application\AuthorOperations\Commands\DeleteAuthor\" />
     <Folder Include="Application\AuthorOperations\Commands\UpdateAuthor\" />
   </ItemGroup>

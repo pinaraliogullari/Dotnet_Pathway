@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BookStoreWebApi.Application.AuthorOperations.Commands.CreateAuthor;
 using BookStoreWebApi.Application.AuthorOperations.Queries.GetAuthor;
 using BookStoreWebApi.Application.AuthorOperations.Queries.GetAuthors;
 using BookStoreWebApi.DbOperations;
@@ -20,6 +21,13 @@ namespace BookStoreWebApi.Controllers
             _context = context;
             _mapper = mapper;
         }
+        [HttpGet]
+        public IActionResult GetAuthors()
+        {
+            GetAuthorsQuery query = new(_context, _mapper);
+            var result = query.Handle();
+            return Ok(result);
+        }
 
         [HttpGet("{id}")]
         public IActionResult GetAuthor(int id)
@@ -33,13 +41,18 @@ namespace BookStoreWebApi.Controllers
             var result = query.Handle();
             return Ok(result);
         }
-
-        [HttpGet]
-        public IActionResult GetAuthors()
+        [HttpPost]
+        public IActionResult AddAuthor([FromBody] CreateAuthorModel model)
         {
-            GetAuthorsQuery query = new(_context, _mapper);
-            var result = query.Handle();
-            return Ok(result);
+            CreateAuthorCommand command= new(_context, _mapper);
+            command.Model= model;
+
+            CreateAuthorValidator validator = new();
+            validator.ValidateAndThrow(command);
+
+            command.Handle();
+            return Ok();
         }
+    
     }
 }

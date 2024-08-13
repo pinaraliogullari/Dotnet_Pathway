@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using BookStoreWebApi.DbOperations;
+﻿using BookStoreWebApi.DbOperations;
 
 namespace BookStoreWebApi.Application.BookOperations.Commands.UpdateBook
 {

@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using BookStoreWebApi.DbOperations;
-using BookStoreWebApi.Entities;
+﻿using BookStoreWebApi.DbOperations;
 
 namespace BookStoreWebApi.Application.GenreOperations.Commands.UpdateGenre
 {

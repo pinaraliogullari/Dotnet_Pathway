@@ -17,8 +17,8 @@ namespace BookStoreWebApi.Application.AuthorOperations.Queries.GetAuthors
 
         public List<AuthorsViewModel> Handle()
         {
-            var authorList=_context.Authors.Include(x=>x.Books).OrderBy(x=>x.Id).ToList();
-            var authorListVm= _mapper.Map<List<AuthorsViewModel>>(authorList);
+            var authorList = _context.Authors.Include(x => x.Books).OrderBy(x => x.Id).ToList();
+            var authorListVm = _mapper.Map<List<AuthorsViewModel>>(authorList);
             return authorListVm;
         }
 

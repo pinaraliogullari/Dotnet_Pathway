@@ -20,9 +20,9 @@ namespace BookStoreWebApi.DbOperations
                     );
 
                 context.Authors.AddRange(
-                    new Author { FirstName = "John", LastName = "Steinback", BirthDate = new DateTime(1875, 12, 5)},
-                    new Author { FirstName = "George", LastName = "Orwell", BirthDate = new DateTime(1789, 10, 2)},
-                    new Author { FirstName = "Lev", LastName = "Tolstoy", BirthDate = new DateTime(1828, 6, 28)}
+                    new Author { FirstName = "John", LastName = "Steinback", BirthDate = new DateTime(1875, 12, 5) },
+                    new Author { FirstName = "George", LastName = "Orwell", BirthDate = new DateTime(1789, 10, 2) },
+                    new Author { FirstName = "Lev", LastName = "Tolstoy", BirthDate = new DateTime(1828, 6, 28) }
                     );
 
                 context.Books.AddRange(
@@ -30,7 +30,7 @@ namespace BookStoreWebApi.DbOperations
                         {
                             Title = "Lean Startup",
                             GenreId = 1,
-                            AuthorId=1,
+                            AuthorId = 1,
                             PageCount = 200,
                             PublishDate = new DateTime(2001, 06, 12)
 
@@ -39,7 +39,7 @@ namespace BookStoreWebApi.DbOperations
                         {
                             Title = "Herland",
                             GenreId = 2,
-                            AuthorId=1,
+                            AuthorId = 1,
                             PageCount = 300,
                             PublishDate = new DateTime(2004, 07, 15)
 
@@ -48,7 +48,7 @@ namespace BookStoreWebApi.DbOperations
                         {
                             Title = "Dune",
                             GenreId = 2,
-                            AuthorId=2,
+                            AuthorId = 2,
                             PageCount = 400,
                             PublishDate = new DateTime(2010, 05, 23)
 

@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace BookStoreWebApi.ValidationRules
 {
-    public class GetAuthorValidator:AbstractValidator<GetAuthorQuery>
+    public class GetAuthorValidator : AbstractValidator<GetAuthorQuery>
     {
         public GetAuthorValidator()
         {

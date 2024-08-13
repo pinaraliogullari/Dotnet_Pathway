@@ -6,7 +6,7 @@ namespace BookStoreWebApi.Application.AuthorOperations.Commands.CreateAuthor
 {
     public class CreateAuthorCommand
     {
-        public CreateAuthorModel Model { get; set; }
+        public CreateAuthorViewModel Model { get; set; }
         private readonly BookStoreDbContext _context;
         private readonly IMapper _mapper;
 
@@ -29,7 +29,7 @@ namespace BookStoreWebApi.Application.AuthorOperations.Commands.CreateAuthor
         }
     }
 
-    public class CreateAuthorModel
+    public class CreateAuthorViewModel
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

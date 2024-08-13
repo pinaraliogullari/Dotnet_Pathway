@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using BookStoreWebApi.Application.AuthorOperations.Commands.CreateAuthor;
+using BookStoreWebApi.Application.AuthorOperations.Commands.DeleteAuthor;
+using BookStoreWebApi.Application.AuthorOperations.Commands.UpdateAuthor;
 using BookStoreWebApi.Application.AuthorOperations.Queries.GetAuthor;
 using BookStoreWebApi.Application.AuthorOperations.Queries.GetAuthors;
 using BookStoreWebApi.DbOperations;
@@ -42,10 +44,10 @@ namespace BookStoreWebApi.Controllers
             return Ok(result);
         }
         [HttpPost]
-        public IActionResult AddAuthor([FromBody] CreateAuthorModel model)
+        public IActionResult AddAuthor([FromBody] CreateAuthorViewModel model)
         {
-            CreateAuthorCommand command= new(_context, _mapper);
-            command.Model= model;
+            CreateAuthorCommand command = new(_context, _mapper);
+            command.Model = model;
 
             CreateAuthorValidator validator = new();
             validator.ValidateAndThrow(command);
@@ -53,6 +55,33 @@ namespace BookStoreWebApi.Controllers
             command.Handle();
             return Ok();
         }
-    
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateAuthor(int id, UpdateAuthorViewModel model)
+        {
+            UpdateAuthorCommand command = new(_context,_mapper);
+            command.AuthorId = id;
+            command.Model = model;
+
+            UpdateAuthorValidator validator = new();
+            validator.ValidateAndThrow(command);
+
+            command.Handle();
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteAuthor(int id)
+        {
+            DeleteAuthorCommand command = new(_context);
+            command.AuthorId = id;
+
+            DeleteAuthorValidator validator = new();
+            validator.ValidateAndThrow(command);
+
+            command.Handle();
+            return Ok();
+        }
+
     }
 }

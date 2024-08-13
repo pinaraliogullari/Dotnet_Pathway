@@ -17,7 +17,7 @@ namespace BookStoreWebApi.Middlewares
         private readonly RequestDelegate _next;
         private readonly ILoggerService _logger;
 
-        public CustomExceptionMiddleware(RequestDelegate next,  ILoggerService logger)
+        public CustomExceptionMiddleware(RequestDelegate next, ILoggerService logger)
         {
             _next = next;
             _logger = logger;

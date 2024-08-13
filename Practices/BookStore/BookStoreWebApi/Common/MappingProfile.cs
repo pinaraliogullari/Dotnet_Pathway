@@ -19,16 +19,16 @@ namespace BookStoreWebApi.Common
             CreateMap<CreateBookModel, Book>();
             CreateMap<Book, BookViewModel>().ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name));
             CreateMap<Book, BooksViewModel>().ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name));
-     
-           
+
+
             CreateMap<Genre, GenresViewModel>();
             CreateMap<Genre, GenreViewModel>();
             CreateMap<CreateGenreModel, Genre>();
 
-            CreateMap<Author, AuthorViewModel>().ForMember(dest=>dest.Books,opt=>opt.MapFrom(src=>src.Books.Select(x=>x.Title).ToList()));
-            CreateMap<Author, AuthorsViewModel>().ForMember(dest=>dest.Books,opt=>opt.MapFrom(src=>src.Books.Select(x=>x.Title).ToList()));
-            CreateMap<CreateAuthorModel, Author>();
-       
+            CreateMap<Author, AuthorViewModel>().ForMember(dest => dest.Books, opt => opt.MapFrom(src => src.Books.Select(x => x.Title).ToList()));
+            CreateMap<Author, AuthorsViewModel>().ForMember(dest => dest.Books, opt => opt.MapFrom(src => src.Books.Select(x => x.Title).ToList()));
+            CreateMap<CreateAuthorViewModel, Author>();
+
 
 
         }

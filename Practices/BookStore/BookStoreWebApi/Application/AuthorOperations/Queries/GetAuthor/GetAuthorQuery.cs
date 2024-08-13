@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using BookStoreWebApi.DbOperations;
-using BookStoreWebApi.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookStoreWebApi.Application.AuthorOperations.Queries.GetAuthor
@@ -19,11 +18,11 @@ namespace BookStoreWebApi.Application.AuthorOperations.Queries.GetAuthor
 
         public AuthorViewModel Handle()
         {
-            var author= _context.Authors.Include(x=>x.Books).SingleOrDefault(x=>x.Id==AuthorId);
+            var author = _context.Authors.Include(x => x.Books).SingleOrDefault(x => x.Id == AuthorId);
             if (author == null)
                 throw new InvalidOperationException("Yazar bulunamadı");
 
-            var authorVm= _mapper.Map<AuthorViewModel>(author);
+            var authorVm = _mapper.Map<AuthorViewModel>(author);
             return authorVm;
         }
 

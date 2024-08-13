@@ -7,7 +7,6 @@ using BookStoreWebApi.Application.GenreOperations.Queries.GetGenres;
 using BookStoreWebApi.DbOperations;
 using BookStoreWebApi.ValidationRules;
 using FluentValidation;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using static BookStoreWebApi.Application.GenreOperations.Commands.CreateGenre.CreateGenreCommand;
 using static BookStoreWebApi.Application.GenreOperations.Commands.UpdateGenre.UpdateGenreCommand;
@@ -31,9 +30,9 @@ namespace BookStoreWebApi.Controllers
 
         public IActionResult GetRenges()
         {
-            GetGenresQuery query= new (_context, _mapper);
+            GetGenresQuery query = new(_context, _mapper);
             var result = query.Handle();
-            return Ok(result);  
+            return Ok(result);
         }
 
         [HttpGet("{id}")]
@@ -53,8 +52,8 @@ namespace BookStoreWebApi.Controllers
         [HttpPost]
         public IActionResult AddGenre([FromBody] CreateGenreModel newGenre)
         {
-            CreateGenreCommand command= new(_context, _mapper);
-            command.Model= newGenre;
+            CreateGenreCommand command = new(_context, _mapper);
+            command.Model = newGenre;
 
             CreateGenreValidator validator = new();
             validator.ValidateAndThrow(command);
@@ -65,13 +64,13 @@ namespace BookStoreWebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateGenre([FromBody] UpdateGenreModel updateGenre,int id)
+        public IActionResult UpdateGenre([FromBody] UpdateGenreModel updateGenre, int id)
         {
-            UpdateGenreCommand command= new(_context);
-            command.GenreId=id;
-            command.Model= updateGenre;
+            UpdateGenreCommand command = new(_context);
+            command.GenreId = id;
+            command.Model = updateGenre;
 
-            UpdateGenreValidator validator= new();
+            UpdateGenreValidator validator = new();
             validator.ValidateAndThrow(command);
 
             command.Handle();
@@ -83,10 +82,10 @@ namespace BookStoreWebApi.Controllers
 
         public IActionResult DeleteGenre(int id)
         {
-            DeleteGenreCommand command= new(_context);
-            command.GenreId= id;
+            DeleteGenreCommand command = new(_context);
+            command.GenreId = id;
 
-            DeleteGenreValidator validator= new();
+            DeleteGenreValidator validator = new();
             validator.ValidateAndThrow(command);
 
             command.Handle();

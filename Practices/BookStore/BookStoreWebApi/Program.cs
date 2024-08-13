@@ -1,5 +1,6 @@
 using BookStoreWebApi.DbOperations;
 using BookStoreWebApi.Middlewares;
+using BookStoreWebApi.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -14,6 +15,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<BookStoreDbContext>(options => options.UseInMemoryDatabase(databaseName: "BookStoreDb"));
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+builder.Services.AddSingleton<ILoggerService, ConsoleLogger>();
+//builder.Services.AddSingleton<ILoggerService, ConsoleLogger>(); //dbye loglamak istersek
 
 var app = builder.Build();
 

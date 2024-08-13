@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using BookStoreWebApi.Services;
+using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Net;
 
@@ -14,10 +15,12 @@ namespace BookStoreWebApi.Middlewares
     public class CustomExceptionMiddleware
     {
         private readonly RequestDelegate _next;
+        private readonly ILoggerService _logger;
 
-        public CustomExceptionMiddleware(RequestDelegate next)
+        public CustomExceptionMiddleware(RequestDelegate next,  ILoggerService logger)
         {
             _next = next;
+            _logger = logger;
         }
 
 
@@ -28,13 +31,13 @@ namespace BookStoreWebApi.Middlewares
             {
 
                 string message = "[Request] HTTP" + context.Request.Method + "-" + context.Request.Path;
-                Console.WriteLine(message);
+                _logger.Write(message);
                 await _next(context);
 
                 watch.Stop();
 
                 message = "[Response] HTTP" + context.Request.Method + "-" + context.Request.Path + "responded" + context.Response.StatusCode + "in" + watch.Elapsed.TotalMilliseconds + "ms";
-                Console.WriteLine(message);
+                _logger.Write(message);
             }
             catch (Exception ex)
             {
@@ -51,7 +54,7 @@ namespace BookStoreWebApi.Middlewares
             context.Response.ContentType = "application/json";
 
             string message = "[Error] HTTP" + context.Request.Method + "-" + context.Response.StatusCode + "Error Message:" + ex.Message + "in" + watch.Elapsed.TotalMilliseconds + " ms";
-            Console.WriteLine(message);
+            _logger.Write(message);
 
 
             var result = JsonConvert.SerializeObject(new { error = ex.Message }, Formatting.None);

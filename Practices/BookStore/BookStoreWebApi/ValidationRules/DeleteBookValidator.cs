@@ -1,4 +1,4 @@
-﻿using BookStoreWebApi.BookOperations.DeleteBook;
+﻿using BookStoreWebApi.Application.BookOperations.Commands.DeleteBook;
 using FluentValidation;
 
 namespace BookStoreWebApi.ValidationRules

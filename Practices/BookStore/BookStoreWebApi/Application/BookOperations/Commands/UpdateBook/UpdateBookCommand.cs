@@ -1,14 +1,13 @@
 ﻿using AutoMapper;
 using BookStoreWebApi.DbOperations;
 
-namespace BookStoreWebApi.BookOperations.UpdateBook
+namespace BookStoreWebApi.Application.BookOperations.Commands.UpdateBook
 {
     public class UpdateBookCommand
     {
         public UpdateBookViewModel Model { get; set; }
         public int BookId { get; set; }
         private readonly BookStoreDbContext _context;
-        private readonly IMapper _mapper;
         public UpdateBookCommand(BookStoreDbContext context)
         {
             _context = context;

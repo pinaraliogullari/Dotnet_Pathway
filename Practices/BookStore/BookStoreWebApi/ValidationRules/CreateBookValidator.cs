@@ -1,4 +1,4 @@
-﻿using BookStoreWebApi.BookOperations.CreateBook;
+﻿using BookStoreWebApi.Application.BookOperations.Commands.CreateBook;
 using FluentValidation;
 
 namespace BookStoreWebApi.ValidationRules

@@ -1,4 +1,4 @@
-﻿using BookStoreWebApi.BookOperations.GetBook;
+﻿using BookStoreWebApi.Application.BookOperations.Queires.GetBook;
 using FluentValidation;
 
 namespace BookStoreWebApi.ValidationRules

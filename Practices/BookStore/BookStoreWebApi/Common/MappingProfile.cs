@@ -2,8 +2,8 @@
 using BookStoreWebApi.Application.GenreOperations.Queries.GetGenre;
 using BookStoreWebApi.Application.GenreOperations.Queries.GetGenres;
 using BookStoreWebApi.Entities;
+using static BookStoreWebApi.Application.AuthorOperations.Queries.GetAuthor.GetAuthorQuery;
 using static BookStoreWebApi.Application.BookOperations.Commands.CreateBook.CreateBookCommand;
-using static BookStoreWebApi.Application.BookOperations.Commands.UpdateBook.UpdateBookCommand;
 using static BookStoreWebApi.Application.BookOperations.Queires.GetBook.GetBookQuery;
 using static BookStoreWebApi.Application.BookOperations.Queires.GetBooks.GetBooksQuery;
 using static BookStoreWebApi.Application.GenreOperations.Commands.CreateGenre.CreateGenreCommand;
@@ -22,6 +22,9 @@ namespace BookStoreWebApi.Common
             CreateMap<Genre, GenresViewModel>();
             CreateMap<Genre, GenreViewModel>();
             CreateMap<CreateGenreModel, Genre>();
+
+            CreateMap<Author, AuthorViewModel>().ForMember(dest=>dest.Books,opt=>opt.MapFrom(src=>src.Books.Select(x=>x.Title).ToList()));
+       
 
 
         }

@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Application\BookOperations\Queries\" />
+    <Folder Include="Application\BookOperations\Queries\GetBookTest\" />
   </ItemGroup>
 
   <ItemGroup>

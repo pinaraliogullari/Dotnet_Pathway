@@ -15,10 +15,10 @@ namespace BookStoreWebApi.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly BookStoreDbContext _context;
+        private readonly IBookStoreDbContext _context;
         private readonly IMapper _mapper;
 
-        public AuthController(BookStoreDbContext context, IMapper mapper)
+        public AuthController(IBookStoreDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;

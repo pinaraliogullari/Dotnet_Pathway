@@ -5,9 +5,9 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStoreWebApi", "BookStore.WebApi\BookStoreWebApi.csproj", "{A16818E0-6081-4E94-85B2-4374024CE01E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{24220F16-E8A2-4030-8D07-9C4F525023C4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D196D9EE-B97C-41A8-BBC0-0F5047D2F643}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.UnitTest", "BookStore.UnitTest\BookStore.UnitTest.csproj", "{085A41A4-8B54-4106-A359-67020AE0D7BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.UnitTest", "Tests\BookStore.UnitTest\BookStore.UnitTest.csproj", "{89AEAD72-CBCF-4856-994D-C95171082937}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,16 +19,16 @@ Global
 		{A16818E0-6081-4E94-85B2-4374024CE01E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A16818E0-6081-4E94-85B2-4374024CE01E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A16818E0-6081-4E94-85B2-4374024CE01E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{085A41A4-8B54-4106-A359-67020AE0D7BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{085A41A4-8B54-4106-A359-67020AE0D7BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{085A41A4-8B54-4106-A359-67020AE0D7BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{085A41A4-8B54-4106-A359-67020AE0D7BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89AEAD72-CBCF-4856-994D-C95171082937}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89AEAD72-CBCF-4856-994D-C95171082937}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89AEAD72-CBCF-4856-994D-C95171082937}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89AEAD72-CBCF-4856-994D-C95171082937}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{085A41A4-8B54-4106-A359-67020AE0D7BA} = {24220F16-E8A2-4030-8D07-9C4F525023C4}
+		{89AEAD72-CBCF-4856-994D-C95171082937} = {D196D9EE-B97C-41A8-BBC0-0F5047D2F643}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A84F1708-F0B0-4CF5-82D6-617903CB186E}

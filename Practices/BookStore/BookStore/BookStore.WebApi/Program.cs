@@ -14,9 +14,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<BookStoreDbContext>(options => options.UseInMemoryDatabase(databaseName: "BookStoreDb"));
+builder.Services.AddScoped<IBookStoreDbContext, BookStoreDbContext>();
+
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddSingleton<ILoggerService, ConsoleLogger>();
-//builder.Services.AddSingleton<ILoggerService, ConsoleLogger>(); //dbye loglamak istersek
+//builder.Services.AddSingleton<ILoggerService, DbLogger>(); //dbye loglamak istersek
 
 var app = builder.Build();
 

@@ -30,7 +30,7 @@ namespace BookStore.UnitTest.Application.BookOperations.Commands.CreateBookTest
             _context.SaveChanges();
 
             CreateBookCommand command = new(_context, _mapper);
-            command.Model = new CreateBookModel { Title = book.Title };
+            command.Model = new CreateBookModel { Title = book.Title};
 
             //act && assert
             FluentActions

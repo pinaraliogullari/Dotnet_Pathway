@@ -37,6 +37,7 @@ namespace BookStoreWebApi.Application.BookOperations.Queires.GetBook
             public int PageCount { get; set; }
             public string PublishDate { get; set; }
             public string Genre { get; set; }
+            public string Author { get; set; }
         }
     }
 }

@@ -4,7 +4,7 @@ using FluentAssertions;
 using Xunit;
 using static BookStoreWebApi.Application.BookOperations.Commands.UpdateBook.UpdateBookCommand;
 
-namespace BookStore.UnitTest.Application.BookOperations.Commands.UpdataBookTest
+namespace BookStore.UnitTest.Application.BookOperations.Commands.UpdateBookTest
 {
     public class UpdateBookCommandValidatorTest
     {

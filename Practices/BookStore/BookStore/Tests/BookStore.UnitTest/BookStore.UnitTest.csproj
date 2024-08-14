@@ -27,10 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Application\BookOperations\Queries\GetBookTest\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\BookStore.WebApi\BookStoreWebApi.csproj" />
   </ItemGroup>
 

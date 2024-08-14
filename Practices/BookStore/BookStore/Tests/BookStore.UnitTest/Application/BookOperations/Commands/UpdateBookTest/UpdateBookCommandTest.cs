@@ -6,7 +6,7 @@ using FluentAssertions;
 using Xunit;
 using static BookStoreWebApi.Application.BookOperations.Commands.UpdateBook.UpdateBookCommand;
 
-namespace BookStore.UnitTest.Application.BookOperations.Commands.UpdataBookTest
+namespace BookStore.UnitTest.Application.BookOperations.Commands.UpdateBookTest
 {
     public class UpdateBookCommandTest:IClassFixture<CommonTextFixture>
     {
@@ -25,13 +25,11 @@ namespace BookStore.UnitTest.Application.BookOperations.Commands.UpdataBookTest
             command.BookId = bookId;
 
             //act
-            var action= FluentActions.Invoking(() => command.Handle());
+            var result= FluentActions.Invoking(() => command.Handle());
 
             //assert
-         
-            action.Should().Throw<InvalidOperationException>().And.Message.Should().Be("Güncellenecek kitap bulunamadı");
 
-
+            result.Should().Throw<InvalidOperationException>().And.Message.Should().Be("Güncellenecek kitap bulunamadı");
         }
 
         [Fact]

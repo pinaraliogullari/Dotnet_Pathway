@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
 using BookStoreWebApi.Application.UserOperations.Commands.CreateToken;
 using BookStoreWebApi.Application.UserOperations.Commands.CreateUser;
+using BookStoreWebApi.Application.UserOperations.Commands.RefreshToken;
 using BookStoreWebApi.DbOperations;
 using BookStoreWebApi.TokenOperations.Models;
 using Microsoft.AspNetCore.Mvc;
-using static BookStoreWebApi.Application.UserOperations.Commands.CreateToken.CreateTokenCommand;
+using static BookStoreWebApi.Application.UserOperations.Commands.CreateToken.LoginCommand;
 using static BookStoreWebApi.Application.UserOperations.Commands.CreateUser.CreateUserCommand;
 
 namespace BookStoreWebApi.Controllers
@@ -35,12 +36,23 @@ namespace BookStoreWebApi.Controllers
         }
 
         [HttpPost("connect/token")]
-        public ActionResult<Token> CreateToken([FromBody] CreateTokenModel model)
+        public ActionResult<Token> Login([FromBody] LoginModel model)
         {
-            CreateTokenCommand command = new (_context, _mapper, _configuration);
+            LoginCommand command = new (_context, _mapper, _configuration);
             command.Model= model;
             var token= command.Handle();
             return token;
+        }
+
+       
+        [HttpGet("{refreshToken}")]
+        public ActionResult<Token> RefreshToken([FromQuery] string token)
+        {
+            RefreshTokenCommand command= new(_context, _configuration);
+            command.RefreshToken = token;
+            var refreshToken= command.Handle();
+            return refreshToken;
+
         }
     }
 }

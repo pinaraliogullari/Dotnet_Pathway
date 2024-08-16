@@ -9,6 +9,7 @@ using static BookStoreWebApi.Application.BookOperations.Commands.CreateBook.Crea
 using static BookStoreWebApi.Application.BookOperations.Queires.GetBook.GetBookQuery;
 using static BookStoreWebApi.Application.BookOperations.Queires.GetBooks.GetBooksQuery;
 using static BookStoreWebApi.Application.GenreOperations.Commands.CreateGenre.CreateGenreCommand;
+using static BookStoreWebApi.Application.UserOperations.Commands.CreateUser.CreateUserCommand;
 
 namespace BookStoreWebApi.Common
 {
@@ -30,6 +31,8 @@ namespace BookStoreWebApi.Common
             CreateMap<Author, AuthorViewModel>().ForMember(dest => dest.Books, opt => opt.MapFrom(src => src.Books.Select(x => x.Title).ToList()));
             CreateMap<Author, AuthorsViewModel>().ForMember(dest => dest.Books, opt => opt.MapFrom(src => src.Books.Select(x => x.Title).ToList()));
             CreateMap<CreateAuthorViewModel, Author>();
+
+            CreateMap<CreateUserModel, User>();
 
 
 

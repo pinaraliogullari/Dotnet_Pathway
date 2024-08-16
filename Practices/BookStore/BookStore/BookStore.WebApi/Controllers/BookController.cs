@@ -7,6 +7,7 @@ using BookStoreWebApi.Application.BookOperations.Queires.GetBooks;
 using BookStoreWebApi.DbOperations;
 using BookStoreWebApi.ValidationRules;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static BookStoreWebApi.Application.BookOperations.Commands.CreateBook.CreateBookCommand;
 using static BookStoreWebApi.Application.BookOperations.Commands.UpdateBook.UpdateBookCommand;
@@ -14,6 +15,7 @@ using static BookStoreWebApi.Application.BookOperations.Queires.GetBook.GetBookQ
 
 namespace BookStoreWebApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]s")]
     [ApiController]
     public class BookController : ControllerBase
